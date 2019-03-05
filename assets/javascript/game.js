@@ -54,7 +54,7 @@ function game() {
             crystalBtn.css("background-color", "whitesmoke");
             reset()
             newNumber()
-            alert("win");
+            alert("You Win!!! Click ok to collect more crystals");
         }
         else if (counter > crystalNumb) {
             losses++;
@@ -62,7 +62,7 @@ function game() {
             crystalBtn.css("background-color", "whitesmoke");
             reset()
             newNumber()
-            alert("lose");
+            alert("You lose! You collected too many and cannot carry them all. click ok to try again");
         }
     })
 
