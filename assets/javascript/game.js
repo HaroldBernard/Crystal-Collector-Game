@@ -51,20 +51,20 @@ function game() {
         $(this).css("background-color", "midnightblue");
 
         if (counter === crystalNumb) {
+            alert("You Win!!! Click ok to collect more crystals");
             wins++;
             winner.text(wins);
             crystalBtn.css("background-color", "whitesmoke");
+            newNumber();
             reset()
-            newNumber()
-            alert("You Win!!! Click ok to collect more crystals");
         }
         else if (counter > crystalNumb) {
+            alert("You lose! You collected too many and cannot carry them all. click ok to try again");
             losses++;
             loser.text(losses);
             crystalBtn.css("background-color", "whitesmoke");
-            reset()
             newNumber()
-            alert("You lose! You collected too many and cannot carry them all. click ok to try again");
+            reset()
         }
     })
 
