@@ -19,6 +19,8 @@ function reset() {
     numbOptions = [2, 3, 7, 11];
     counter = 0;
     totalScore.text(counter);
+    var crystalNumb = Math.floor(Math.random() * 55) + 28;
+    $(".randNum").text(crystalNumb);
 }
 
 //takes random number for array, uses it, then removes it from aray
