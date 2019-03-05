@@ -17,10 +17,10 @@ $(".randNum").text(crystalNumb);
 
 function reset() {
     numbOptions = [2, 3, 7, 11];
+    crystalNumb = Math.floor(Math.random() * 55) + 28;
+    $(".randNum").text(crystalNumb);
     counter = 0;
     totalScore.text(counter);
-    var crystalNumb = Math.floor(Math.random() * 55) + 28;
-    $(".randNum").text(crystalNumb);
 }
 
 //takes random number for array, uses it, then removes it from aray
@@ -57,6 +57,8 @@ function game() {
             crystalBtn.css("background-color", "whitesmoke");
             newNumber();
             reset()
+            console.log(counter)
+            console.log(crystalNumb)
         }
         else if (counter > crystalNumb) {
             alert("You lose! You collected too many and cannot carry them all. click ok to try again");
@@ -65,6 +67,8 @@ function game() {
             crystalBtn.css("background-color", "whitesmoke");
             newNumber()
             reset()
+            console.log(counter)
+            console.log(crystalNumb)
         }
     })
 
