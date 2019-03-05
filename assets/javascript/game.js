@@ -46,10 +46,12 @@ function game() {
         crystalValue = parseInt(crystalValue);
         counter += crystalValue;
         totalScore.text(counter);
+        $(this).css("background-color", "midnightblue");
 
         if (counter === crystalNumb) {
             wins++;
             winner.text(wins);
+            crystalBtn.css("background-color", "whitesmoke");
             reset()
             newNumber()
             alert("win");
@@ -57,6 +59,7 @@ function game() {
         else if (counter > crystalNumb) {
             losses++;
             loser.text(losses);
+            crystalBtn.css("background-color", "whitesmoke");
             reset()
             newNumber()
             alert("lose");
