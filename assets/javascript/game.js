@@ -1,0 +1,67 @@
+var wins = 0;
+var losses = 0;
+var numbOptions = [2, 3, 7, 11];
+var counter = 0
+var crystalBtn = $("button")
+var totalScore = $(".totalScore");
+var winner = $(".winner");
+var loser = $(".loser");
+
+//sets up start of the game with 0 wins, 0 losses,
+winner.text(wins);
+loser.text(losses);
+
+//computer randomly selects a number between 28 and 83 then places that number within the html at randNum div
+var crystalNumb = Math.floor(Math.random() * 55) + 28;
+$(".randNum").text(crystalNumb);
+
+function reset() {
+    numbOptions = [2, 3, 7, 11];
+    counter = 0;
+    totalScore.text(counter);
+}
+
+//takes random number for array, uses it, then removes it from aray
+function randnum() {
+    var rand = Math.floor(Math.random() * numbOptions.length);
+    var selected = numbOptions[rand];
+    numbOptions.splice(rand, 1)
+    return selected;
+}
+
+//computer randomly assigns a number to a crystal
+function newNumber() {
+    $(".crystal1").attr("data-crystalvalue", randnum());
+    $(".crystal2").attr("data-crystalvalue", randnum());
+    $(".crystal3").attr("data-crystalvalue", randnum());
+    $(".crystal4").attr("data-crystalvalue", randnum());
+    //crystalBtn.attr('data-crystalvalue', numbOptions[i])
+}
+newNumber();
+
+//onclick function that adds value of clicked crystal to the counter score and resets inputs
+function game() {
+    crystalBtn.on("click", function () {
+        var crystalValue = ($(this).attr("data-crystalvalue"));
+        crystalValue = parseInt(crystalValue);
+        counter += crystalValue;
+        totalScore.text(counter);
+
+        if (counter === crystalNumb) {
+            wins++;
+            winner.text(wins);
+            reset()
+            newNumber()
+            alert("win");
+        }
+        else if (counter > crystalNumb) {
+            losses++;
+            loser.text(losses);
+            reset()
+            newNumber()
+            alert("lose");
+        }
+    })
+
+}
+game()
